@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Royal Store - Premium grocery shopping experience with curated selections of global delicacies, fresh organic produce, and premium lifestyle goods. Free delivery within 15KM.">
+    <meta name="keywords"
+        content="Royal Store, premium groceries, organic produce, gourmet food, online grocery shopping, home delivery">
+    <meta name="author" content="Royal Store">
+    <title>Royal Store | Premium Grocery Shopping</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- ═══════════ PREMIUM PRELOADER ═══════════ -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-crown">👑</div>
+            <h1 class="preloader-logo">ROYAL</h1>
+            <p class="preloader-sub">Premium Shopping Experience</p>
+            <div class="preloader-bar">
+                <div class="preloader-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ BACKGROUND LAYERS ═══════════ -->
+    <div class="bg-gradient-overlay"></div>
+    <div class="bg-image-container">
+        <img src="assets/royal_hero_bg.png" alt="Royal Store Premium Groceries" id="hero-bg-img">
+    </div>
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- ═══════════ NAVIGATION ═══════════ -->
+    <nav class="main-nav" id="main-nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" id="nav-logo-link">
+                <span class="nav-crown">👑</span>
+                <span class="nav-logo-text">ROYAL</span>
+            </a>
+
+            <div class="nav-links" id="nav-links">
+                <a href="#" class="nav-link active" data-page="hero" id="nav-home">
+                    <i class="fas fa-home"></i><span>Home</span>
+                </a>
+                <a href="#" class="nav-link" data-page="shop" id="nav-shop">
+                    <i class="fas fa-store"></i><span>Shop</span>
+                </a>
+                <a href="#" class="nav-link" data-page="orders" id="nav-orders">
+                    <i class="fas fa-receipt"></i><span>My Orders</span>
+                </a>
+                <a href="#" class="nav-link admin-link hidden" data-page="admin" id="nav-admin">
+                    <i class="fas fa-user-shield"></i><span>Admin</span>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <div class="nav-search" id="nav-search-wrapper">
+                    <i class="fas fa-search nav-search-icon" id="search-icon-toggle"></i>
+                    <input type="text" class="nav-search-input" placeholder="Search products..." id="main-search"
+                        autocomplete="off">
+                </div>
+                <button class="nav-action-btn cart-btn" id="cart-toggle" aria-label="Open Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </button>
+                <button class="nav-action-btn user-btn" id="user-btn" aria-label="User Profile">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <button class="nav-action-btn mobile-menu-btn" id="mobile-menu-toggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-drawer hidden" id="mobile-drawer">
+        <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+        <div class="mobile-drawer-content">
+            <div class="mobile-drawer-header">
+                <span class="nav-crown">👑</span>
+                <span class="nav-logo-text">ROYAL</span>
+                <button id="close-mobile-drawer"><i class="fas fa-times"></i></button>
+            </div>
+            <a href="#" class="mobile-nav-link active" data-page="hero">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="#" class="mobile-nav-link" data-page="shop">
+                <i class="fas fa-store"></i> Shop
+            </a>
+            <a href="#" class="mobile-nav-link" data-page="orders">
+                <i class="fas fa-receipt"></i> My Orders
+            </a>
+            <a href="#" class="mobile-nav-link admin-link hidden" data-page="admin">
+                <i class="fas fa-user-shield"></i> Admin Panel
+            </a>
+            <div class="mobile-drawer-footer">
+                <button class="btn btn-outline-light full-width" id="mobile-logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Sign Out
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ MAIN CONTENT ═══════════ -->
+    <main id="main-content">
+
+        <!-- ──── HERO SECTION ──── -->
+        <section id="page-hero" class="page active-page">
+            <div class="hero-wrapper">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        PREMIUM QUALITY SINCE 1995
+                    </div>
+                    <h1 class="hero-title">
+                        Experience<br>
+                        <span class="hero-gradient-text">Royal Shopping.</span>
+                    </h1>
+                    <p class="hero-description">
+                        Discover an unparalleled selection of premium groceries, fresh organic produce, artisan
+                        specialties, and gourmet delicacies — all delivered to your doorstep.
+                    </p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary btn-glow" id="hero-shop-btn">
+                            <i class="fas fa-shopping-bag"></i> Start Shopping
+                        </button>
+                        <button class="btn btn-glass" id="hero-offers-btn">
+                            <i class="fas fa-tags"></i> View Offers
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="5000">0</span><span class="stat-plus">+</span>
+                            <span class="stat-label">Products</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="15">0</span><span class="stat-unit">KM</span>
+                            <span class="stat-label">Free Delivery</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="50000">0</span><span class="stat-plus">+</span>
+                            <span class="stat-label">Happy Customers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer Banner Carousel -->
+                <div class="offer-carousel" id="offer-carousel">
+                    <div class="offer-carousel-track" id="offer-carousel-track">
+                        <!-- Banners inserted by JS -->
+                    </div>
+                    <div class="offer-carousel-dots" id="offer-carousel-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ──── SHOP SECTION ──── -->
+        <section id="page-shop" class="page hidden">
+            <div class="shop-wrapper">
+                <div class="shop-header">
+                    <div class="shop-header-text">
+                        <h2 class="section-title">Premium <span class="highlight">Selection</span></h2>
+                        <p class="section-subtitle">Handpicked for perfection</p>
+                    </div>
+                    <div class="shop-filters" id="shop-filters">
+                        <button class="filter-chip active" data-filter="all">
+                            <i class="fas fa-th"></i> All
+                        </button>
+                        <button class="filter-chip" data-filter="fruits">
+                            <i class="fas fa-apple-alt"></i> Fruits & Veg
+                        </button>
+                        <button class="filter-chip" data-filter="dairy">
+                            <i class="fas fa-cheese"></i> Dairy
+                        </button>
+                        <button class="filter-chip" data-filter="grains">
+                            <i class="fas fa-seedling"></i> Grains
+                        </button>
+                        <button class="filter-chip" data-filter="snacks">
+                            <i class="fas fa-cookie-bite"></i> Snacks
+                        </button>
+                        <button class="filter-chip" data-filter="beverages">
+                            <i class="fas fa-mug-hot"></i> Beverages
+                        </button>
+                        <button class="filter-chip" data-filter="meat">
+                            <i class="fas fa-drumstick-bite"></i> Meat & Fish
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recommendations row -->
+                <div class="recommendations-section hidden" id="recommendations-section">
+                    <h3 class="reco-title"><i class="fas fa-magic"></i> Recommended for You</h3>
+                    <div class="reco-grid" id="reco-grid"></div>
+                </div>
+
+                <div class="product-grid" id="product-grid">
+                    <!-- Products rendered by JS -->
+                </div>
+                <div class="no-results hidden" id="no-results">
+                    <div class="no-results-inner">
+                        <i class="fas fa-search-minus"></i>
+                        <h3>Item Not Available</h3>
+                        <p>Sorry for the inconvenience. This item is currently not in our catalog.</p>
+                        <button class="btn btn-glass" id="clear-search-btn">
+                            <i class="fas fa-arrow-left"></i> Browse All Products
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ──── ORDERS SECTION ──── -->
+        <section id="page-orders" class="page hidden">
+            <div class="orders-wrapper">
+                <h2 class="section-title">My <span class="highlight">Orders</span></h2>
+                <div class="orders-list" id="orders-list">
+                    <div class="empty-orders">
+                        <i class="fas fa-box-open"></i>
+                        <h3>No Orders Yet</h3>
+                        <p>Your order history will appear here once you make a purchase.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ──── ADMIN SECTION ──── -->
+        <section id="page-admin" class="page hidden">
+            <div class="admin-wrapper">
+                <div class="admin-header-bar">
+                    <h2 class="section-title"><i class="fas fa-crown"></i> Admin <span class="highlight">Control
+                            Panel</span></h2>
+                </div>
+                <div class="admin-tabs-bar">
+                    <button class="admin-tab active" data-admin-tab="manage-products">
+                        <i class="fas fa-boxes"></i> Products
+                    </button>
+                    <button class="admin-tab" data-admin-tab="manage-banners">
+                        <i class="fas fa-images"></i> Banners
+                    </button>
+                    <button class="admin-tab" data-admin-tab="manage-orders">
+                        <i class="fas fa-clipboard-list"></i> Orders
+                    </button>
+                </div>
+
+                <!-- Manage Products -->
+                <div class="admin-panel active" id="manage-products">
+                    <div class="admin-form glass-card-light">
+                        <h3><i class="fas fa-plus-circle"></i> Add / Update Product</h3>
+                        <div class="admin-form-grid">
+                            <div class="form-field">
+                                <label>Product Name</label>
+                                <input type="text" id="admin-p-name" placeholder="e.g. Organic Quinoa">
+                            </div>
+                            <div class="form-field">
+                                <label>Price (₹)</label>
+                                <input type="number" id="admin-p-price" placeholder="e.g. 450">
+                            </div>
+                            <div class="form-field">
+                                <label>Category</label>
+                                <select id="admin-p-category">
+                                    <option value="fruits">Fruits & Vegetables</option>
+                                    <option value="dairy">Dairy</option>
+                                    <option value="grains">Grains & Pulses</option>
+                                    <option value="snacks">Snacks</option>
+                                    <option value="beverages">Beverages</option>
+                                    <option value="meat">Meat & Fish</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label>Product Image</label>
+                                <div class="admin-upload-group">
+                                    <input type="file" id="admin-p-file" accept="image/*" class="file-input-hidden">
+                                    <label for="admin-p-file" class="btn btn-glass btn-sm"><i class="fas fa-upload"></i>
+                                        Upload</label>
+                                    <input type="text" id="admin-p-image" placeholder="Or paste URL">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="admin-add-product-btn">
+                            <i class="fas fa-plus"></i> Add Product
+                        </button>
+                    </div>
+                    <div class="admin-list" id="admin-product-list">
+                        <!-- Products listed here -->
+                    </div>
+                </div>
+
+                <!-- Manage Banners -->
+                <div class="admin-panel hidden" id="manage-banners">
+                    <div class="admin-form glass-card-light">
+                        <h3><i class="fas fa-bullhorn"></i> Add Offer Banner</h3>
+                        <div class="admin-form-grid">
+                            <div class="form-field full-span">
+                                <label>Banner Text</label>
+                                <input type="text" id="admin-banner-text" placeholder="e.g. 20% off on all fruits!">
+                            </div>
+                            <div class="form-field">
+                                <label>Text Color</label>
+                                <input type="color" id="admin-banner-color" value="#ffffff">
+                            </div>
+                            <div class="form-field">
+                                <label>Background Gradient Start</label>
+                                <input type="color" id="admin-banner-bg1" value="#3A7BD5">
+                            </div>
+                            <div class="form-field">
+                                <label>Background Gradient End</label>
+                                <input type="color" id="admin-banner-bg2" value="#00D2FF">
+                            </div>
+                            <div class="form-field">
+                                <label>Text Alignment</label>
+                                <select id="admin-banner-align">
+                                    <option value="center">Center</option>
+                                    <option value="left">Left</option>
+                                    <option value="right">Right</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label>Font Size</label>
+                                <select id="admin-banner-size">
+                                    <option value="1.2rem">Small</option>
+                                    <option value="1.6rem" selected>Medium</option>
+                                    <option value="2.2rem">Large</option>
+                                </select>
+                            </div>
+                            <div class="form-field full-span">
+                                <label>Banner Image</label>
+                                <div class="admin-upload-group">
+                                    <input type="file" id="admin-banner-file" accept="image/*"
+                                        class="file-input-hidden">
+                                    <label for="admin-banner-file" class="btn btn-glass btn-sm"><i
+                                            class="fas fa-image"></i> Click to Upload from Device</label>
+                                    <input type="text" id="admin-banner-img"
+                                        placeholder="Or paste background image URL">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="admin-add-banner-btn">
+                            <i class="fas fa-plus"></i> Add Banner
+                        </button>
+                    </div>
+                    <div class="admin-list" id="admin-banner-list">
+                        <!-- Banners listed here -->
+                    </div>
+                </div>
+
+                <!-- Manage Orders -->
+                <div class="admin-panel hidden" id="manage-orders">
+                    <div class="admin-list" id="admin-orders-list">
+                        <div class="empty-orders">
+                            <i class="fas fa-clipboard-list"></i>
+                            <h3>Order History</h3>
+                            <p>All customer orders will appear here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════ CART SIDEBAR ═══════════ -->
+    <div class="cart-overlay hidden" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-sidebar-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="cart-close-btn" id="cart-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items -->
+        </div>
+        <div class="cart-footer-section">
+            <div class="cart-summary-row">
+                <span>Subtotal</span>
+                <span class="cart-subtotal-val" id="cart-subtotal">₹0</span>
+            </div>
+            <button class="btn btn-primary full-width btn-glow" id="checkout-btn" disabled>
+                <i class="fas fa-lock"></i> Proceed to Checkout
+            </button>
+        </div>
+    </aside>
+
+    <!-- ═══════════ AUTH MODAL ═══════════ -->
+    <div class="modal-backdrop hidden" id="auth-modal">
+        <div class="auth-modal-card">
+            <div class="auth-modal-visual">
+                <div class="auth-visual-content">
+                    <span class="auth-crown">👑</span>
+                    <h2>Welcome to<br><span>Royal Store</span></h2>
+                    <p>Your premium grocery destination</p>
+                </div>
+            </div>
+            <div class="auth-modal-form">
+                <div class="auth-tabs" id="auth-tabs">
+                    <button class="auth-tab active" data-auth="signin">Sign In</button>
+                    <button class="auth-tab" data-auth="signup">Sign Up</button>
+                </div>
+
+                <!-- Sign In -->
+                <form id="form-signin" class="auth-form">
+                    <h3>Welcome Back</h3>
+                    <p class="auth-form-desc">Enter your email to continue</p>
+                    <div class="floating-input">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="signin-email" placeholder=" " required>
+                        <label>Email Address</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width">
+                        <i class="fas fa-arrow-right"></i> Continue
+                    </button>
+                </form>
+
+                <!-- Sign Up -->
+                <form id="form-signup" class="auth-form hidden">
+                    <h3>Join Royal Store</h3>
+                    <p class="auth-form-desc">Create your premium account</p>
+                    <div class="floating-input">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="signup-name" placeholder=" " required>
+                        <label>Full Name</label>
+                    </div>
+                    <div class="floating-input">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="signup-email" placeholder=" " required>
+                        <label>Email Address</label>
+                    </div>
+                    <div class="floating-input">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="signup-phone" placeholder=" ">
+                        <label>Phone (optional)</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+                </form>
+
+                <!-- OTP Verification -->
+                <div id="form-otp" class="auth-form hidden">
+                    <h3>Verify Identity</h3>
+                    <p class="auth-form-desc">We sent a 6-digit code to <span id="otp-email-display"></span></p>
+                    <div class="otp-row" id="otp-row">
+                        <input type="text" maxlength="1" class="otp-input" data-otp="0" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-input" data-otp="1" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-input" data-otp="2" inputmode="numeric">
+                        <span class="otp-separator">-</span>
+                        <input type="text" maxlength="1" class="otp-input" data-otp="3" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-input" data-otp="4" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-input" data-otp="5" inputmode="numeric">
+                    </div>
+
+                    <!-- CAPTCHA -->
+                    <div class="captcha-container">
+                        <div class="captcha-label"><i class="fas fa-shield-alt"></i> Human Verification</div>
+                        <div class="captcha-display">
+                            <canvas id="captcha-canvas" width="200" height="60"></canvas>
+                            <button type="button" class="captcha-refresh" id="captcha-refresh">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                        <input type="text" class="captcha-input" id="captcha-input"
+                            placeholder="Enter the characters above" autocomplete="off">
+                    </div>
+
+                    <button class="btn btn-primary full-width" id="verify-otp-btn">
+                        <i class="fas fa-check-circle"></i> Verify & Enter
+                    </button>
+                    <button class="btn btn-ghost" id="resend-otp-btn">
+                        <i class="fas fa-redo"></i> Resend Code <span id="resend-timer"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ CHECKOUT MODAL ═══════════ -->
+    <div class="modal-backdrop hidden" id="checkout-modal">
+        <div class="checkout-card glass-card-light">
+            <div class="checkout-header">
+                <h3><i class="fas fa-receipt"></i> Checkout</h3>
+                <button id="close-checkout"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="checkout-body">
+                <div class="delivery-options">
+                    <label class="delivery-option">
+                        <input type="radio" name="delivery-method" value="shop" checked>
+                        <div class="delivery-option-card">
+                            <i class="fas fa-store"></i>
+                            <div>
+                                <strong>Collect from Shop</strong>
+                                <span>Pick up at your convenience</span>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="delivery-option">
+                        <input type="radio" name="delivery-method" value="home">
+                        <div class="delivery-option-card">
+                            <i class="fas fa-truck"></i>
+                            <div>
+                                <strong>Home Delivery</strong>
+                                <span>Free within 15 KM radius</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="address-section hidden" id="address-section">
+                    <div class="floating-input">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="delivery-address" placeholder=" " required>
+                        <label>Full Address</label>
+                    </div>
+                    <div class="floating-input">
+                        <i class="fas fa-map-pin"></i>
+                        <input type="text" id="delivery-pincode" placeholder=" ">
+                        <label>Pincode</label>
+                    </div>
+                    <div class="floating-input">
+                        <i class="fas fa-ruler"></i>
+                        <input type="number" id="delivery-distance" placeholder=" " min="1" max="500" step="0.5">
+                        <label>Distance from shop (KM)</label>
+                    </div>
+                    <div class="delivery-notice" id="delivery-notice"></div>
+                </div>
+
+                <div class="checkout-items" id="checkout-items"></div>
+
+                <div class="checkout-summary">
+                    <div class="summary-line">
+                        <span>Subtotal</span>
+                        <span id="chk-subtotal">₹0</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Delivery</span>
+                        <span id="chk-delivery">₹0</span>
+                    </div>
+                    <div class="summary-line total-line">
+                        <span>Total</span>
+                        <span id="chk-total">₹0</span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary full-width btn-glow" id="place-order-btn">
+                <i class="fas fa-check-circle"></i> Place Order
+            </button>
+        </div>
+    </div>
+
+    <!-- ═══════════ SUCCESS MODAL ═══════════ -->
+    <div class="modal-backdrop hidden" id="success-modal">
+        <div class="success-card">
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+            <h2>Order Placed!</h2>
+            <p>Your order has been confirmed.</p>
+            <div class="success-code-wrap">
+                <span>Order Code</span>
+                <strong id="success-code">----</strong>
+            </div>
+            <p class="success-sub">Details have been sent to your email and the administrator.</p>
+            <button class="btn btn-primary" id="success-close-btn">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- ═══════════ FREE DELIVERY POPUP ═══════════ -->
+    <div class="modal-backdrop hidden" id="free-delivery-popup">
+        <div class="free-delivery-card">
+            <div class="confetti-container" id="confetti-container"></div>
+            <div class="free-delivery-icon">🎉</div>
+            <h2>Enjoy Your <span class="highlight">Free Delivery!</span></h2>
+            <p>Your address is within our 15 KM radius. Delivery is on us!</p>
+            <button class="btn btn-primary" id="free-delivery-ok">Awesome!</button>
+        </div>
+    </div>
+
+    <!-- ═══════════ AI ASSISTANT ═══════════ -->
+    <div class="ai-widget" id="ai-widget">
+        <div class="ai-chat-panel hidden" id="ai-chat-panel">
+            <div class="ai-chat-header">
+                <div class="ai-header-left">
+                    <div class="ai-avatar">
+                        <i class="fas fa-robot"></i>
+                        <span class="ai-online-dot"></span>
+                    </div>
+                    <div>
+                        <div class="ai-name">Royal AI</div>
+                        <div class="ai-status-text">Online • Ready to help</div>
+                    </div>
+                </div>
+                <button class="ai-close-btn" id="ai-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="ai-chat-messages" id="ai-messages">
+                <div class="ai-msg-bubble bot">
+                    <div class="ai-msg-avatar"><i class="fas fa-robot"></i></div>
+                    <div class="ai-msg-content">
+                        <p>Hello! 👋 I'm your <strong>Royal AI Assistant</strong>. I can help you find products, check
+                            delivery info, recommend items, and answer questions. How can I assist you today?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-quick-replies" id="ai-quick-replies">
+                <button class="ai-quick-btn" data-msg="Show me recommendations">🛒 Recommendations</button>
+                <button class="ai-quick-btn" data-msg="Tell me about delivery">🚚 Delivery Info</button>
+                <button class="ai-quick-btn" data-msg="What offers are available?">🏷️ Offers</button>
+            </div>
+            <div class="ai-chat-input">
+                <input type="text" id="ai-input" placeholder="Type your message..." autocomplete="off">
+                <button class="ai-send-btn" id="ai-send"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="ai-fab" id="ai-fab" aria-label="Virtual Assistant">
+            <div class="ai-fab-pulse"></div>
+            <i class="fas fa-robot"></i>
+        </button>
+    </div>
+
+    <!-- ═══════════ TOAST CONTAINER ═══════════ -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- ═══════════ USER MENU DROPDOWN ═══════════ -->
+    <div class="user-dropdown hidden" id="user-dropdown">
+        <div class="user-dropdown-header" id="user-dropdown-header">
+            <i class="fas fa-user-circle"></i>
+            <div>
+                <div class="user-dd-name" id="user-dd-name">Guest</div>
+                <div class="user-dd-email" id="user-dd-email">Not signed in</div>
+            </div>
+        </div>
+        <hr>
+        <button class="user-dd-item" id="dd-orders"><i class="fas fa-receipt"></i> My Orders</button>
+        <button class="user-dd-item" id="dd-signout"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
